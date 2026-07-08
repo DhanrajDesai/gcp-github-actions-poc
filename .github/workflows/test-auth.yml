@@ -23,9 +23,17 @@ jobs:
         with:
           workload_identity_provider: projects/1033224611649/locations/global/workloadIdentityPools/github-pool/providers/github-provider
           service_account: github-actions-sa@gcp-zero-to-hero-499506.iam.gserviceaccount.com
+      
+      - name: Verify Auth
+        run: |
+          gcloud auth list
 
       - name: Setup gcloud
         uses: google-github-actions/setup-gcloud@v2
+              
+      - name: Upload index.html to GCS
+        run: |
+          gcloud storage cp index.html gs://gcp-zero-to-hero-artifacts-499506/
 
       - name: Verify
         run: gcloud auth list
