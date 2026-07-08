@@ -1,4 +1,4 @@
-name: Test GCP authentication
+name: Test GCP Authentication
 
 on:
   workflow_dispatch:
@@ -23,7 +23,5 @@ jobs:
       - name: Setup gcloud
         uses: google-github-actions/setup-gcloud@v2
 
-      - name: Verify Auth
-        run: |
-          gcloud auth list
-          gcloud config list
+      - name: Verify
+        run: gcloud auth list
